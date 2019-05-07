@@ -1,6 +1,8 @@
-db.persons.drop()
-db.persons.insert([
-    {name: "Jack"},
-    {name: "John"},
-    {name: "Sarah"}
+db.Quizz.drop();
+db.Quizz.insert([
+    {
+        name: "QuizzTest",
+        icone: "http://localhost",
+        tags: [{txt:"test"},{txt:"prout"}]
+    },
 ]);

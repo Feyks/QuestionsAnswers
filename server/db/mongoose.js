@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const schemaQuizz = require('./schema/schemaQuizz.js').schemaQuizz;
+const schemaQuestion = require('./schema/schemaQuestion').schemaQuestion;
+const schemaReponse = require('./schema/schemaReponse').schemaReponse;
 
 mongoose.connect('mongodb://localhost/projetReact', {useNewUrlParser: true});
 
@@ -9,11 +11,16 @@ db.once('open', () => {
     console.log("connected to", db.client.s.url);
 });
 
-const personsSchema = Schema({
-    name: String
-},{versionKey:false});
+const dbQuizz = mongoose.model('Quizz', schemaQuizz, 'Quizz');
 
-const Persons = mongoose.model('Persons', personsSchema);
+/*dbQuizz.deleteMany().exec();
+
+quizz = new dbQuizz;
+quizz.name = "Test";
+quizz.tags = [];
+quizz.tags.push({txt:"test"});
+quizz.save();*/
+
 
 module.exports = {};
-module.exports.persons = Persons;
+module.exports.dbQuizz = dbQuizz;
