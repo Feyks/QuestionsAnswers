@@ -7,8 +7,17 @@ class CreationQuizz extends Component {
         super(props);
         this.state = {
             activeItem: '',
-            stock: []
-        };
+            stock: {
+                "title": "",
+                "data": [
+                    {
+                        "question": "",
+                        "reponses": []
+                    }
+                ]
+            }
+        }
+        ;
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleItemClick = this.handleItemClick.bind(this);
@@ -34,7 +43,6 @@ class CreationQuizz extends Component {
                 document.getElementById("gen").remove();
             }
         }
-
     };
 
     handleChange(e) {
@@ -62,21 +70,21 @@ class CreationQuizz extends Component {
                                     3
                                 </a>
                             </div>
-                            <a id="+Q" className="ui button" >
-                                +  //modif
+                            <a id="+Q" className="ui button">
+                                + //modif
                             </a>
                         </div>
                         <div className="eleven wide stretched column">
                             <div className="ui segment">
                                 <div id="gen" className="column">
                                     <p className="ui segment">Quizz Name</p>
-                                    <div className="ui input column">
+                                    <div className="ui fluid icon input">
                                         <input type="text" placeholder="QuizzName"/>
                                     </div>
                                 </div>
                                 <div className="column">
                                     <p className="ui segment">Description de la question</p>
-                                    <div className="ui input column">
+                                    <div className="ui fluid icon input">
                                         <input type="text" placeholder="Description de la question"/>
                                     </div>
                                 </div>
@@ -84,15 +92,16 @@ class CreationQuizz extends Component {
                                     <p className="ui segment">Reponses</p>
                                     <div className="ui three column double grid">
                                         <div className="ui input column">
-                                        <input type="text" placeholder="Reponse 1 modif image"/>
+                                            <input type="text" placeholder="Reponse 1 modif image"/>
                                         </div>
                                         <div className="ui input column">
-                                        <input type="text" placeholder="Reponse 2"/>
+                                            <input type="text" placeholder="Reponse 2"/>
                                         </div>
-                                        <div className="ui column">
-                                            <a id="+R" className="ui button">
-                                                Plus de reponses //modif
-                                            </a>
+                                        <div className="ui input column">
+                                            <input type="text" placeholder="Reponse 3"/>
+                                        </div>
+                                        <div className="ui input column">
+                                            <input type="text" placeholder="Reponse 4"/>
                                         </div>
                                         <div className="ui column">
                                             <a id="+R" className="ui button">
@@ -110,23 +119,23 @@ class CreationQuizz extends Component {
                         id="11"
                         className="">
                         0
-                        </h1>
-                            <h1 id="2" className="hidden">
-                                coucou
-                            </h1>
-                            <input
-                                type="text"
-                                value={this.state.activeItem}
-                                onChange={this.handleChange}
-                            />
+                    </h1>
+                    <h1 id="2" className="hidden">
+                        coucou
+                    </h1>
+                    <input
+                        type="text"
+                        value={this.state.activeItem}
+                        onChange={this.handleChange}
+                    />
                 </label>
                 <input type="submit" value="Next" onClick={this.handleItemClick}/>
             </form>
-    );
+        );
     }
-    }
+}
 
-    export default CreationQuizz;
+export default CreationQuizz;
 
 
 
