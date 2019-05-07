@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import logo2 from './logo2.png';
+
 require("./Style.css");
 
 class Menu extends Component {
@@ -8,10 +9,10 @@ class Menu extends Component {
             <div className="ui massive fluid five item menu">
                 <div className="header item">
                     <a href="/">
-                    <img src={logo2} className="logo2"/>
+                        <img src={logo2} className="logo2"/>
                     </a>
                 </div>
-                <a className="item" href="/quizz">
+                <a className="item " href="/quizz">
                     <i className="gamepad huge icon"></i>
                     <p className="para">Jouer</p>
                 </a>
