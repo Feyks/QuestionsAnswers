@@ -16,26 +16,27 @@ class CreationQuizz extends Component {
     }
 
     handleSubmit = (e) => {
-        alert('A name was submitted: ' + this.state.activeItem);
+        alert('A name was submitted: ' + this.state.stock);
         e.preventDefault();
     };
+
     handleItemClick = (elem) => {
+        let doc = document.getElementsByClassName("active");
+        doc[0].className = "item police";
+        elem.target.className = "item active";
         console.log(elem.target);
-        if(elem.className)
-        this.setState({stock: this.state.stock.concat(this.state.activeItem)});
+        if (elem.className)
+            this.setState({stock: this.state.stock.concat(this.state.activeItem)});
         console.log(this.state.stock);
-        let doc = document.getElementsByClassName("item active");
-        if (doc) {
-            doc[0].className="item";
+
+        if (elem.target.id !== 'g') {
+            if (document.getElementById("gen")) {
+                document.getElementById("gen").remove();
+            }
         }
-        console.log(document.getElementById("gen").className);
-        if (elem.target.id === 'g') {
-            document.getElementById("gen").className = document.getElementById("gen").className+" hidden";
-        }
-        console.log(document.getElementById("gen").className);
-        elem.target.className="item active";
 
     };
+
     handleChange(e) {
         this.setState({activeItem: e.target.value});
     }
@@ -45,72 +46,87 @@ class CreationQuizz extends Component {
             <form onSubmit={this.handleSubmit}>
 
                 <div className="list">
-                        <div className="ui grid">
-                            <div className="four wide column">
-                                <div className="ui vertical fluid tabular menu">
-                                    <a id="g" className="item active" onClick={this.handleItemClick}>
-                                        General
-                                    </a>
-                                    <a id="1" className="item" onClick={this.handleItemClick}>
-                                        1
-                                    </a>
-                                    <a id="2" className="item" onClick={this.handleItemClick}>
-                                        2
-                                    </a>
-                                    <a id="3" className="item" onClick={this.handleItemClick}>
-                                        3
-                                    </a>
-                                    <a id="+" className="item" onClick={this.handleItemClick}>
-                                        +
-                                    </a>
-                                </div>
+                    <div className="ui grid">
+                        <div className="four wide column">
+                            <div className="ui vertical fluid tabular menu">
+                                <a id="g" className="item active" onClick={this.handleItemClick}>
+                                    General
+                                </a>
+                                <a id="1" className="police item" onClick={this.handleItemClick}>
+                                    1
+                                </a>
+                                <a id="2" className="item police" onClick={this.handleItemClick}>
+                                    2
+                                </a>
+                                <a id="3" className="item police" onClick={this.handleItemClick}>
+                                    3
+                                </a>
                             </div>
-                            <div className="eleven wide stretched column">
-                                <div className="ui segment">
-                                    <div className="column">
-                                        <div id="gen" className="ui input column">
-                                            <input type="text" placeholder="QuizzName"/>
-                                        </div>
+                            <a id="+Q" className="ui button" >
+                                +  //modif
+                            </a>
+                        </div>
+                        <div className="eleven wide stretched column">
+                            <div className="ui segment">
+                                <div id="gen" className="column">
+                                    <p className="ui segment">Quizz Name</p>
+                                    <div className="ui input column">
+                                        <input type="text" placeholder="QuizzName"/>
                                     </div>
-                                    <div className="column">
-                                        <div className="ui segment input description">
-                                            <input type="text" placeholder="Description de la question"/>
-                                        </div>
+                                </div>
+                                <div className="column">
+                                    <p className="ui segment">Description de la question</p>
+                                    <div className="ui input column">
+                                        <input type="text" placeholder="Description de la question"/>
                                     </div>
-                                    <div className="column">
-                                        <div className="ui one column stackable grid container">
-                                            <div className="column">
-                                                <div className="ui input column">
-                                                    <input type="text" placeholder="R1"/>
-                                                </div>
-                                            </div>
-                                            <div className="column">
-                                                <div className="ui input column">
-                                                    <input type="text" placeholder="R2"/>
-                                                </div>
-                                            </div>
+                                </div>
+                                <div className="column">
+                                    <p className="ui segment">Reponses</p>
+                                    <div className="ui three column double grid">
+                                        <div className="ui input column">
+                                        <input type="text" placeholder="Reponse 1 modif image"/>
+                                        </div>
+                                        <div className="ui input column">
+                                        <input type="text" placeholder="Reponse 2"/>
+                                        </div>
+                                        <div className="ui column">
+                                            <a id="+R" className="ui button">
+                                                Plus de reponses //modif
+                                            </a>
+                                        </div>
+                                        <div className="ui column">
+                                            <a id="+R" className="ui button">
+                                                Valider Quizz Complet //modif
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <label>
-                    <h1 id="11" className="">
-                       0
-                    </h1>
-                    <h1 id="2" className="hidden">
-                       coucou
-                    </h1>
-                    <input type="text" value={this.state.activeItem} onChange={this.handleChange}/>
+                    <h1
+                        id="11"
+                        className="">
+                        0
+                        </h1>
+                            <h1 id="2" className="hidden">
+                                coucou
+                            </h1>
+                            <input
+                                type="text"
+                                value={this.state.activeItem}
+                                onChange={this.handleChange}
+                            />
                 </label>
                 <input type="submit" value="Next" onClick={this.handleItemClick}/>
             </form>
-        );
+    );
     }
-}
+    }
 
-export default CreationQuizz;
+    export default CreationQuizz;
 
 
 
