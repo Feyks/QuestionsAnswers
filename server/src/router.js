@@ -15,6 +15,12 @@ router.delete("/quizz/:id",quizz.deleteQuizz);
 router.patch("/quizz",quizz.updateQuizz);
 router.post("/quizz/:id/score",quizz.getScore);
 
+const Image = require('../src/image');
+image = new Image;
+
+router.post('/upload',image.uploadImage);
+
+
 router.use((req, res) => {
         res.status(400);
         res.json({error: "Bad request"});
