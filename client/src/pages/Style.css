@@ -1,12 +1,37 @@
 .home {
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 .quizz {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 .recherche {
     margin-left: 40%;
     margin-bottom: 5%;
+}
+
+.disable {
+    visibility: hidden;
+}
+
+.logo2 {
+    width: 323px !important;
+
+}
+
+.disable {
+    visibility: hidden;
+}
+
+.para {
+    font-size: 32px;
+}
+
+.logo{
+    display: block;
+    margin: auto;
+    margin-bottom: 3%;
+    width: 50%;
+
 }
