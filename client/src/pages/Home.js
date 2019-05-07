@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import logo from './logo.png';
-import logo2 from "./logo2.png";
+
 require("./Style.css");
 
 class Home extends Component {

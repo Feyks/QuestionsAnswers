@@ -2,19 +2,17 @@ import React, {Component} from "react";
 
 require("./Style.css");
 
-
-class Quizz extends Component {
+class QuizzEdit extends Component {
     render() {
         return (
-            <div className="quizz">
-                <div className="recherche">
-                    <div className="ui massive action input">
-                        <input type="text" placeholder="Rechercher..."></input>
-                        <div className="ui button">Rechercher</div>
+            <div className="menuEdit">
+                <div className="titreEdit">
+                    <div className="ui center aligned raised very padded text container segment">
+                        <h1 className="ui huge header">Edition d'un Quizz</h1>
                     </div>
                 </div>
-                <div className="ui two column stackable grid container">
 
+                <div className="ui two column stackable grid container">
                     <div className="column">
                         <button className="ui fluid massive center aligned right labeled icon button">
                             <i className="right arrow icon"></i>
@@ -57,4 +55,4 @@ class Quizz extends Component {
     }
 }
 
-export default Quizz;
+export default QuizzEdit;
