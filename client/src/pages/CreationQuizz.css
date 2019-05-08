@@ -1,0 +1,28 @@
+.list {
+    margin-left: 2%;
+}
+
+.column {
+    margin-top: 1%;
+}
+
+.input {
+    margin:2%;
+}
+
+.police {
+    color: white!important;
+    font-size: 20px;
+    user-focus: none;
+}
+.active{
+    color: black;
+    font-size: 20px;
+}
+.hidden {
+    display: none;
+}
+
+.checkbox {
+    margin-left: 1%;
+}
