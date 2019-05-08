@@ -163,7 +163,7 @@ class EditAQuizz extends Component {
                             </div>
                             <div id="validate" className="ui column hidden">
                                 <input className="ui button" type="submit" value="Enregistrer Quizz"
-                                       onClick={this.handleSubmit}/>
+                                        onClick={this.handleSubmit}/>
                             </div>
 
                         </div>
