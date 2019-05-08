@@ -11,7 +11,7 @@ app
         useTempFiles: true,
         tempFileDir: '/tmp/'
     }))
-    .use(express.static('resources'))
+    .use('/static',express.static('resources'))
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({extended: true}))
     .use(router)
