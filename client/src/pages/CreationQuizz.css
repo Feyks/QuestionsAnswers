@@ -3,12 +3,11 @@
 }
 
 .column {
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 .input {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin:2%;
 }
 
 .police {
@@ -21,5 +20,9 @@
     font-size: 20px;
 }
 .hidden {
-    visibility: hidden;
+    display: none;
+}
+
+.checkbox {
+    margin-left: 1%;
 }
