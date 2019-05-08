@@ -131,7 +131,8 @@ class Quizz extends Component {
     }
 
     async componentDidMount() {
-       const quizz = (await axios.get('http://localhost:8081/quizz'));
+       const quizz = (await axios.get('http://localhost:8081/quizz').data);
+       console.log(quizz);
        this.setState({
            quizz:quizz
        })
