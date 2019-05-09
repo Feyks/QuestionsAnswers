@@ -5,104 +5,6 @@ const site = "http://localhost:3000/quizz/";
 
 require("./Style.css");
 
-const quizzTest = [{
-    "name": "Quizz de Test 2",
-    "icone": "/icone/test2",
-    "tags": [{"txt":"test"},{"txt":"pet"}],
-    "description": "Ceci est un quizz de test",
-    "questions": [
-        {
-            "text": "Qu'est ce qu'un escargot ?",
-            "reponses": [
-                {
-                    "reponse": "Un escargot",
-                    "image": false,
-                    "bonne": true
-                },
-                {
-                    "reponse": "Un NES car GoT",
-                    "image": false,
-                    "bonne": false
-                },
-                {
-                    "reponse": "Obiwan Kenobi",
-                    "image": false,
-                    "bonne": false
-                }
-            ]
-        },
-        {
-            "text": "Qu'est ce que le shmilblick ?",
-            "reponses": [
-                {
-                    "reponse": "Un escargot",
-                    "image": false,
-                    "bonne": true
-                },
-                {
-                    "reponse": "Un oeuf",
-                    "image": false,
-                    "bonne": false
-                },
-                {
-                    "reponse": "une connerie",
-                    "image": false,
-                    "bonne": false
-                }
-            ]
-        }
-    ]
-},
-    {
-        "name": "Quizz de Test 3",
-        "icone": "/icone/test2",
-        "tags": [{"txt":"test"},{"txt":"pet"}],
-        "description": "Ceci est un quizz de test",
-        "questions": [
-            {
-                "text": "Qu'est ce qu'un escargot ?",
-                "reponses": [
-                    {
-                        "reponse": "Un escargot",
-                        "image": false,
-                        "bonne": true
-                    },
-                    {
-                        "reponse": "Un NES car GoT",
-                        "image": false,
-                        "bonne": false
-                    },
-                    {
-                        "reponse": "Obiwan Kenobi",
-                        "image": false,
-                        "bonne": false
-                    }
-                ]
-            },
-            {
-                "text": "Qu'est ce que le shmilblick ?",
-                "reponses": [
-                    {
-                        "reponse": "Un escargot",
-                        "image": false,
-                        "bonne": true
-                    },
-                    {
-                        "reponse": "Un oeuf",
-                        "image": false,
-                        "bonne": false
-                    },
-                    {
-                        "reponse": "une connerie",
-                        "image": false,
-                        "bonne": false
-                    }
-                ]
-            }
-        ]
-    }
-];
-
 class ObjectQuizz extends Component {
 
     constructor(props) {
@@ -112,14 +14,14 @@ class ObjectQuizz extends Component {
         }
     }
 
-    render(){
+    render() {
         return (<div className="column">
-            <a href={site+this.props._id+"/play"}>
-            <button className="ui fluid massive center aligned right labeled icon button">
-                <i className="right arrow icon"></i>
-                {this.state.name}
-            </button>
-            </a>
+                <a href={site + this.props._id + "/play"}>
+                    <button className="ui fluid massive center aligned right labeled icon button">
+                        <i className="right arrow icon"></i>
+                        {this.state.name}
+                    </button>
+                </a>
             </div>
         )
     }
@@ -128,19 +30,19 @@ class ObjectQuizz extends Component {
 
 class Quizz extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            quizz: quizzTest
+            quizz: []
         }
     }
 
     async componentDidMount() {
-       const quizz = (await axios.get('http://localhost:8081/quizz').then((res) => {
-           this.setState({
-               quizz:res.data
-           })
-       }));
+        const quizz = (await axios.get('http://localhost:8081/quizz').then((res) => {
+            this.setState({
+                quizz: res.data
+            })
+        }));
 
     }
 
@@ -150,8 +52,8 @@ class Quizz extends Component {
 
     render() {
 
-        var allQuizz =  this.state.quizz.map((q) =>
-             <ObjectQuizz name={q.name} _id={q._id}/>
+        var allQuizz = this.state.quizz.map((q) =>
+            <ObjectQuizz name={q.name} _id={q._id}/>
         );
 
         return (
@@ -163,7 +65,7 @@ class Quizz extends Component {
                     </div>
                 </div>
                 <div className="ui two column stackable grid container">
-                {allQuizz}
+                    {allQuizz}
                 </div>
             </div>
         );
