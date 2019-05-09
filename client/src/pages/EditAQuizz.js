@@ -40,7 +40,7 @@ class EditAQuizz extends Component {
             console.log(response.data);
             this.setState({
                 quizz: response.data
-            })
+            });
         });
     }
 
