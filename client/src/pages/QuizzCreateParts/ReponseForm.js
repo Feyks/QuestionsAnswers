@@ -28,11 +28,12 @@ class MenuQuestion extends Component {
 
     render() {
         return (
-            <div className="column hidden">
+            <div className="column hiden">
                 <p className="ui segment">Reponses</p>
                 <div className="ui three column centered double grid">
                     <div className="ui input column">
-                        <input id="reponse1" type="text" placeholder="Reponse 1 modif image"/>
+                        <img id="reponse 1" className="ui tiny circular image"/>
+                        <input id="reponse1" type="text" onChange={this.props.loadFile} placeholder=""/>
                         <div className="ui checkbox">
                             <input id="br1" type="checkbox" tabIndex="0"/>
                             <label>Bonne réponse</label>
@@ -46,7 +47,8 @@ class MenuQuestion extends Component {
                         </div>
                     </div>
                     <div className="ui input column">
-                        <input id="reponse2" type="text" placeholder="Reponse 2"/>
+                        <img id="reponse 2" className="ui tiny circular image"/>
+                        <input id="reponse2" type="text" onChange={this.props.loadFile} placeholder=""/>
                         <div className="ui checkbox">
                             <input id="br2" type="checkbox" tabIndex="0"/>
                             <label>Bonne réponse</label>
@@ -60,7 +62,8 @@ class MenuQuestion extends Component {
                         </div>
                     </div>
                     <div className="ui input column">
-                        <input id="reponse3" type="text" placeholder="Reponse 3"/>
+                        <img id="reponse 3" className="ui tiny circular image"/>
+                        <input id="reponse3" type="text" onChange={this.props.loadFile} placeholder=""/>
                         <div className="ui checkbox">
                             <input id="br3" type="checkbox" tabIndex="0"/>
                             <label>Bonne réponse</label>
@@ -74,7 +77,8 @@ class MenuQuestion extends Component {
                         </div>
                     </div>
                     <div className="ui input column">
-                        <input id="reponse4" type="text" placeholder="Reponse 4"/>
+                        <img id="reponse 4" className="ui tiny circular image"/>
+                        <input id="reponse4" type="text" onChange={this.props.loadFile} placeholder=""/>
                         <div className="ui checkbox">
                             <input id="br4" type="checkbox" tabIndex="0"/>
                             <label>Bonne réponse</label>
