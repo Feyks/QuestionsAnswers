@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from 'axios';
 
+const site = "http://localhost:3000/quizz/";
+
 require("./Style.css");
 
 const quizzTest = [{
@@ -112,11 +114,14 @@ class ObjectQuizz extends Component {
 
     render(){
         return (<div className="column">
+            <a href={site+this.props._id+"/play"}>
             <button className="ui fluid massive center aligned right labeled icon button">
                 <i className="right arrow icon"></i>
                 {this.state.name}
             </button>
-        </div>)
+            </a>
+            </div>
+        )
     }
 
 }
@@ -131,11 +136,12 @@ class Quizz extends Component {
     }
 
     async componentDidMount() {
-       const quizz = (await axios.get('http://localhost:8081/quizz').data);
-       console.log(quizz);
-       this.setState({
-           quizz:quizz
-       })
+       const quizz = (await axios.get('http://localhost:8081/quizz').then((res) => {
+           this.setState({
+               quizz:res.data
+           })
+       }));
+
     }
 
     // async getSearched(){
@@ -143,9 +149,9 @@ class Quizz extends Component {
     // }
 
     render() {
+
         var allQuizz =  this.state.quizz.map((q) =>
-             <ObjectQuizz name={q.name}/>
-           // console.log(allQuizz + "");
+             <ObjectQuizz name={q.name} _id={q._id}/>
         );
 
         return (
