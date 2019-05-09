@@ -3,7 +3,7 @@ const schemaQuizz = require('./schema/schemaQuizz.js').schemaQuizz;
 const schemaQuestion = require('./schema/schemaQuestion').schemaQuestion;
 const schemaReponse = require('./schema/schemaReponse').schemaReponse;
 
-mongoose.connect('mongodb://localhost/exemple01', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/projetReact', {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
