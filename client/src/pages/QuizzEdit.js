@@ -1,54 +1,65 @@
 import React, {Component} from "react";
+import axios from "axios";
+
+const site = "http://localhost:3000/quizz/";
 
 require("./Style.css");
 
-class QuizzEdit extends Component {
-    render() {
-        return (
-            <div className="menuEdit">
-                <div className="titreEdit">
-                    <div className="ui center aligned raised very padded text container segment">
-                        <h1 className="ui huge header">Edition d'un Quizz</h1>
-                    </div>
-                </div>
+class ObjectQuizz extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: this.props.name
+        }
+    }
+
+    render(){
+        return (<div className="column">
+                <a href={site+this.props._id+"/edit"}>
+                    <button className="ui fluid massive center aligned right labeled icon button">
+                        <i className="right arrow icon"></i>
+                        {this.state.name}
+                    </button>
+                </a>
+            </div>
+        )
+    }
+
+}
+
+class QuizzEdit extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            quizz: []
+        }
+    }
+
+    async componentDidMount() {
+        const quizz = (await axios.get('http://localhost:8081/quizz').then((res) => {
+            this.setState({
+                quizz:res.data
+            })
+        }));
+
+    }
+
+    // async getSearched(){
+    //     const quizz = (await axios.post('http://localhost:8081/tag',{tag:document.getElementById('search').value}))git
+    // }
+
+    render() {
+
+        var allQuizz =  this.state.quizz.map((q) =>
+            <ObjectQuizz name={q.name} _id={q._id}/>
+        );
+
+        return (
+            <div className="quizz">
                 <div className="ui two column stackable grid container">
-                    <div className="column">
-                        <button className="ui fluid massive center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°1
-                        </button>
-                    </div>
-                    <div className="column">
-                        <button className="ui fluid massive center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°2
-                        </button>
-                    </div>
-                    <div className="column">
-                        <button className="ui fluid massive center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°3
-                        </button>
-                    </div>
-                    <div className="column">
-                        <button className="ui fluid massive center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°4
-                        </button>
-                    </div>
-                    <div className="column">
-                        <button className="ui fluid massive center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°5
-                        </button>
-                    </div>
-                    <div className="column">
-                        <button className="ui fluid massive  center aligned right labeled icon button">
-                            <i className="right arrow icon"></i>
-                            Quizz n°6
-                        </button>
-                    </div>
+                    {allQuizz}
                 </div>
             </div>
         );
