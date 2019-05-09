@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Menu from "./QuizzCreateParts/MenuQuestion.js";
+import axios from "axios";
 import Reponses from "./QuizzCreateParts/ReponseForm.js";
 
 require("./CreationQuizz.css");
@@ -56,9 +57,16 @@ class CreationQuizz extends Component {
     //     }
     // };
 
-    loadFile = (event) => {
-        let output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
+    loadFile = (e) => {
+        const fd = new FormData();
+        fd.append('picture', e.target.files[0], e.target.files[0].name);
+        axios.post("http://localhost:8081/upload", fd).then(res => {
+            console.log(res);
+        });
+        if (e.target.id ==="QuizzImage") {
+            let output = document.getElementById('output');
+            output.src = URL.createObjectURL(e.target.files[0]);
+        }
     };
 
 
