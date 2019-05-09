@@ -10,7 +10,7 @@ let router = require('./router');
 app
     .use(fileUpload({
         useTempFiles: true,
-        tempFileDir: '/tmp/'
+        tempFileDir: '\\tmp\\'
     }))
     .use('/static',express.static('resources'))
     .use(bodyParser.json())
